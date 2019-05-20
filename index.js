@@ -61,3 +61,8 @@ let mappings = [
 
 const result = new Transform().transform(mappings, model);
 console.log(result);
+
+// TODO
+// - leave keys FLAG
+// - try to identify the array and transform all the object
+// - type Conversion
