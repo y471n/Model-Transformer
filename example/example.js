@@ -1,4 +1,4 @@
-const { Transform, Map } = require("../index");
+const { transform } = require("../index");
 
 let model = {
   _id: 1,
@@ -10,16 +10,25 @@ let model = {
     }
   ],
   partners: ["2"],
+  time: new Date(),
   _create_upon: new Date().getTime()
 };
 
-let mappings = [
-  new Map("_id", "id"),
-  new Map("cognito_id", "cognitoId"),
-  new Map("_create_upon", "createdUpon", time => {
-    return new Date(time).toDateString();
-  })
-];
-
-const result = new Transform().transform(mappings, model);
+const result = transform(
+  [
+    ["_id", "id"],
+    ["cognito_id", "cognitoId"],
+    [
+      "_create_upon",
+      "createdUpon",
+      model => {
+        return model["time"];
+      }
+    ],
+    ["partners", "partner", () => "The Partner"],
+    ["wallets.0.id", "wallets.0.k"]
+  ],
+  model,
+  true
+);
 console.log(result);
