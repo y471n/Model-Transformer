@@ -1,12 +1,8 @@
 # Model Transformer
 
-## AIM
-
-Transform Model Object to Response Object
-
 ## Motivation
 
-Transform Model Objects to Response JSON
+Transform Model Objects to Response JSON.
 
 ### Cases
 
