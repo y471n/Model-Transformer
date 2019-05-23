@@ -1,4 +1,4 @@
-const { transform } = require("../index");
+import {transform} from "../index"
 
 let model = {
   _id: 1,
