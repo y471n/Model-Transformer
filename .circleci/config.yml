@@ -1,28 +1,26 @@
 version: 2
 
-defaults: 
+defaults: &defaults
   working_directory: ~/package
-  docker: 
+  docker:
     - image: circleci/node:8.9.1
-  
-jobs : 
-  test: 
+
+jobs:
+  test:
     <<: *defaults
-    steps: 
+    steps:
       - checkout
-      - restore_cache: 
-          keys: 
+      - restore_cache:
+          keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      
-      - run : npm install 
-      - run : 
-          name: Run tests 
+
+      - run: npm install
+      - run:
+          name: Run tests
           command: npm test
 
-      - save_cache: 
-          paths: 
+      - save_cache:
+          paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-    
-    
