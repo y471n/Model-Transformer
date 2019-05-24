@@ -27,7 +27,7 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy:
+  testing-build:
     jobs:
       - test:
           filters:
