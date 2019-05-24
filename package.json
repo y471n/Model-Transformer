@@ -1,52 +1,14 @@
 {
-  "name": "@y471n/transformer",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "dist/index.es.js",
+  "name": "model-transformer",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "test": "jest --config jest.config.json",
-    "build": "rollup -c",
-    "prepare": "yarn run build",
-    "typecheck": "tsc --build",
-    "lint": "tslint -p tsconfig.json",
-    "format": "prettier --write 'src/**/*.{ts,tsx}'",
-    "format:check": "prettier --check 'src/**/*.{ts,tsx}'"
+    "test": "yarn --cwd ./packages/test test"
   },
-  "files": [
-    "dist/**/*"
+  "workspaces": [
+    "packages/*"
   ],
-  "keywords": [
-    "transformer",
-    "model",
-    "block8",
-    "y471n"
-  ],
+  "repository": "https://github.com/RastogiAbhijeet/Model-Transformer",
   "author": "",
-  "license": "MIT",
-  "peerDependencies": {
-    "lodash": "^4.17.11"
-  },
-  "devDependencies": {
-    "@svgr/rollup": "^4.1.0",
-    "@types/jest": "^24.0.13",
-    "@types/lodash": "^4.14.130",
-    "jest": "^24.8.0",
-    "prettier": "^1.17.1",
-    "rollup-plugin-terser": "^5.0.0",
-    "rollup": "^1.7.4",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.2",
-    "rollup-plugin-node-resolve": "^4.0.1",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-replace": "^2.1.1",
-    "rollup-plugin-typescript2": "^0.20.1",
-    "rollup-plugin-url": "^2.2.0",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.12.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^3.6.0",
-    "typescript": "^3.3.3"
-  }
+  "license": "MIT"
 }
