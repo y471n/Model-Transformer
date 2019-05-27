@@ -39,7 +39,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/package/.npmrc
       - run:
           name: Publish package
-          command: bash worker.sh publish
+          command: ls
 
 workflows:
   version: 2
