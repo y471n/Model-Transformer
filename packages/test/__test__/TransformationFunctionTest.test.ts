@@ -1,5 +1,4 @@
-import { Transform } from "../index";
-
+import { Transform } from "../../model-transformer/src";
 
 // Given Current , target fields, transformation function in the mapping array and keep_fields = false
 // this test should return the object with transformed current field value and dropping the rest of the fields

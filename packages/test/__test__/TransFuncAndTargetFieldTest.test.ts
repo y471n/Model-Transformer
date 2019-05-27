@@ -1,11 +1,11 @@
-import { Transform } from "../index";
+import { Transform } from "../../model-transformer/src";
 
 // Given Current , target fields, transformation function in the mapping array and keep_fields = false
 // this test should return the object with transformed current field value with target field as the key and dropping the rest of the fields
 test("Test for valid case with transformation function and target fields given", () => {
   const model = {
     allowAccess: true,
-    permissions: "notAdmin",
+    permissions: "notAdmin"
   };
 
   const checkPermission = (model: any) => {
@@ -28,7 +28,7 @@ test("Test for valid case with transformation function and target fields given",
 test("Test for valid case with transformation function with targetFields given and keep fields = true ", () => {
   const model = {
     allowAccess: true,
-    permissions: "notAdmin",
+    permissions: "notAdmin"
   };
 
   const checkPermission = (model: any) => {
@@ -45,5 +45,8 @@ test("Test for valid case with transformation function with targetFields given a
 
   const mapping = [[currentField, targetField, checkPermission]];
 
-  expect(Transform(mapping, model, true)).toEqual({ ...tempobject, [targetField]: false });
+  expect(Transform(mapping, model, true)).toEqual({
+    ...tempobject,
+    [targetField]: false
+  });
 });
