@@ -16,12 +16,12 @@ install()
 }
 
 publish(){
-  
+
   # Update the package.json
   response=$(node helper.js)
   if [ $response == "SUCCESS" ]
   then
-    cd /packages/model-transformer
+    cd packages/model-transformer
     npm publish
   else
     echo "Cannot Publish Right Now because : $response"
