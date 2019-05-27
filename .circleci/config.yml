@@ -25,10 +25,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - persist_to_workspace:
-          root: ~/package
-          paths: .
-
   deploy:
     <<: *defaults
     steps:
@@ -39,7 +35,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/package/.npmrc
       - run:
           name: Publish package
-          command: ls
+          command: bash worker.sh publish
 
 workflows:
   version: 2
