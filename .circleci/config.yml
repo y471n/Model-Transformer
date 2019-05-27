@@ -49,3 +49,7 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+      - deploy:
+          filters:
+            tags:
+              only: /^v.*/
