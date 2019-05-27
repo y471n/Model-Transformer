@@ -4,7 +4,8 @@ SECOND_ARG=$2
 runtest()
 {
   cd packages/test
-  npm test
+  npm install
+  npm run test
 }
 
 install()
