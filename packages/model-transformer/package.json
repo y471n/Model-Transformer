@@ -1,20 +1,19 @@
 {
-  "name": "@rastogiabhijeet/modeltransformer",
-  "version": "0.0.1",
+  "name": "modelrastogitransformer",
+  "version": "0.0.29",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "module": "dist/index.es.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "prepare": "yarn run build",
     "typecheck": "tsc --build",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
     "format:check": "prettier --check 'src/**/*.{ts,tsx}'"
   },
   "files": [
-    "dist/**/*"
+    "lib/**/*"
   ],
   "keywords": [
     "transformer",
@@ -23,8 +22,8 @@
     "y471n"
   ],
   "author": "",
-  "license": "MIT",
-  "peerDependencies": {
+  "license": "Block8",
+  "dependencies": {
     "lodash": "^4.17.11"
   },
   "devDependencies": {

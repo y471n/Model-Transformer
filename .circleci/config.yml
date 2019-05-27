@@ -15,10 +15,10 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
 
-      - run: yarn install
+      - run: bash worker.sh install
       - run:
           name: Run tests
-          command: yarn test
+          command: bash worker.sh test
 
       - save_cache:
           paths:
@@ -39,7 +39,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/package/.npmrc
       - run:
           name: Publish package
-          command: yarn publish
+          command: bash worker.sh publish
 
 workflows:
   version: 2

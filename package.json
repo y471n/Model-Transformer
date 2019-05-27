@@ -1,11 +1,11 @@
 {
   "name": "model-transformer",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "test": "yarn --cwd ./packages/test test",
     "build": "yarn --cwd ./packages/model-transformer build",
-    "deploy": "yarn --cwd ./package/model-transformer publish"
+    "deploy": "yarn --cwd ./package/model-transformer publish",
+    "updateVersion": "node helper.js"
   },
   "workspaces": [
     "packages/*"

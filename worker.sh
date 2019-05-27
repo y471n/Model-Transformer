@@ -15,9 +15,20 @@ install()
 }
 
 publish(){
-  echo "$1"
+  # Update the package.json
+  response=$(node helper.js)
+  if [ $response == "SUCCESS" ]
+  then
+    cd ./packages/model-transformer
+    npm publish
+  else
+    echo "Cannot Publish Right Now because : $response"
+  fi
+  
 }
 
+
+# --------  MAIN BLOCK ------------
 if [ $FIRST_ARG == "test" ]
 then  
   runtest
@@ -28,10 +39,6 @@ then
 
 elif [ $FIRST_ARG == "publish" ]
 then 
-  if [ $2 == "-p" ] && [ $3 == "password" ]
-  then
-    publish
-  else
-    echo "Please provide Password"
-  fi
+  publish
+  
 fi
