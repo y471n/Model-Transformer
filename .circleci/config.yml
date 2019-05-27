@@ -31,7 +31,7 @@ jobs:
       - checkout
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/package/packages/models-transformer/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/package/packages/model-transformer/.npmrc
       - run:
           name: Publish package
           command: bash worker.sh publish
