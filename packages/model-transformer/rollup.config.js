@@ -5,7 +5,7 @@ import external from "rollup-plugin-peer-deps-external";
 import replace from "rollup-plugin-replace";
 import typescript from "rollup-plugin-typescript2";
 import url from "rollup-plugin-url";
-import pkg from "./package.json.js";
+import pkg from "./package.json";
 
 const input = "src/index.ts";
 
