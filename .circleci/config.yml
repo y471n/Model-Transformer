@@ -47,6 +47,10 @@ workflows:
       - deploy:
           requires:
             - test
+          branches:
+            only:
+              - master
+
           filters:
             tags:
               only: /^v.*/
