@@ -10,7 +10,9 @@ runtest()
 install()
 {
   cd packages/test && npm install
+  echo "$(pwd)"
   cd .. && cd ..
+  echo "$(pwd)"
   cd packages/model-transformer && npm install
 }
 
@@ -40,5 +42,5 @@ then
 elif [ $FIRST_ARG == "publish" ]
 then 
   publish
-  
+
 fi
