@@ -1,19 +1,16 @@
 {
-  "name": "@y471n/transformer",
-  "version": "0.0.1",
-  "description": "",
-  "main": "transformer.js",
+  "name": "model-transformer",
+  "version": "1.0.0",
   "scripts": {
-    "start": "node index.js"
+    "test": "yarn --cwd ./packages/test test",
+    "build": "yarn --cwd ./packages/model-transformer build",
+    "deploy": "yarn --cwd ./package/model-transformer publish",
+    "updateVersion": "node helper.js"
   },
-  "keywords": [
-    "transformer",
-    "block8",
-    "y471n"
+  "workspaces": [
+    "packages/*"
   ],
+  "repository": "https://github.com/RastogiAbhijeet/Model-Transformer",
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "lodash": "^4.17.11"
-  }
+  "license": "MIT"
 }
