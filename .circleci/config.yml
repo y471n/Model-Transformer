@@ -1,0 +1,55 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/package
+  docker:
+    - image: circleci/node:8.9.1
+
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: bash worker.sh install
+      - run:
+          name: Run tests
+          command: bash worker.sh test
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/package/packages/model-transformer/.npmrc
+      - run:
+          name: Publish package
+          command: bash worker.sh publish
+
+workflows:
+  version: 2
+  testing-build:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              only: /^v.*/
